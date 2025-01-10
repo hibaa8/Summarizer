@@ -7,14 +7,13 @@ import "./styles/Home.css"
 
 
 const Home = () => {
-    const [books, setBooks] = useState([]); // All books from the backend
+    const [books, setBooks] = useState([]); 
     const [filteredBooks, setFilteredBooks] = useState([]); 
     const [displayedBooks, setDisplayedBooks] = useState([]); 
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedFilters, setSelectedFilters] = useState([]);
 
     useEffect(() => {
-        // Fetch all books from the backend
         axios.get('/api/books')
             .then((response) => {
                 setBooks(response.data);

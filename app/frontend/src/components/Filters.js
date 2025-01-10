@@ -30,8 +30,8 @@ const Filters = ({ books, onFilter }) => {
 
     const handleCategoryChange = (category) => {
         const updatedCategories = selectedCategories.includes(category)
-            ? selectedCategories.filter((c) => c !== category) // Remove if already selected
-            : [...selectedCategories, category]; // Add if not selected
+            ? selectedCategories.filter((c) => c !== category) 
+            : [...selectedCategories, category]; 
 
         setSelectedCategories(updatedCategories);
         onFilter(updatedCategories);

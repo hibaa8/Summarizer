@@ -29,8 +29,22 @@ setupTests.js
 #virtualenv
 /venv
 
-#backend
-backend/.env
+__pycache__/
 
-# Ignore Python cache directories
+# Backend-specific ignores
+backend/.env
 backend/__pycache__/
+backend/instance/
+backend/summaries.db
+backend/test.py
+
+# Frontend-specific ignores
+frontend/.gitignore
+frontend/build/
+
+# Flask static and template folders
+static/
+templates/
+
+# Config file outside of the project directory
+../config.py

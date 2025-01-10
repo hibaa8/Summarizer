@@ -21,27 +21,32 @@
     border-radius: 5px;
     text-align: center;
     max-width: 300px;
-    height: 350px;
-    padding-top:10%;
+    height: 400px;
+    vertical-align: center;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Ensure smooth hover effect */
+    justify-content: space-between; 
+    overflow: hidden; 
+    box-sizing: border-box; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    
 }
 
 .book-card:hover {
-    transform: scale(1.01); /* Disable enlarging effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow change on hover */
+    transform: scale(1.01); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .book-card img {
     width: 100%;
-    height: auto;
-    max-height: 225px; /* Maintain consistent image height */
+    height:auto;
+    max-height: 250px; 
     margin-bottom: 10px;
     border-radius: 5px;
-    object-fit: cover; /* Ensure image fills space without distortion */
+    object-fit: contain;
+    padding-top:5px;
 }
 
 .book-card h3 {
@@ -88,23 +93,22 @@
 
 
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .content {
-        flex-direction: column; /* Stack filters and book grid vertically on small screens */
+        flex-direction: column; 
     }
 
     .filters {
-        max-width: 100%; /* Allow filters to span full width */
+        max-width: 100%; 
         border-right: none;
-        border-bottom: 1px solid #ddd; /* Add border below filters */
+        border-bottom: 1px solid #ddd; 
     }
 
     .book-grid {
-        padding: 10px; /* Reduce padding for smaller screens */
+        padding: 10px;
     }
 
     .book-card {
-        max-width: 100%; /* Allow cards to take full width */
+        max-width: 100%; 
     }
 }

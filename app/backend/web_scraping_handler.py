@@ -28,36 +28,30 @@ class Scraper:
         soup = BeautifulSoup(response.text, "html.parser")
 
         try:
-            # Extract title
             title_tag = soup.find("td", {"itemprop":"headline"})
             if title_tag:
                 title = title_tag.text.strip()
             else:
                 title = "Unknown Title"
 
-            # Extract author
             author_tag = soup.find("a", {"itemprop":"creator"})
             if author_tag:
                 author = ",".join(author_tag.text.strip().split(',')[:2])
             else:
                 author = "Unknown Author"
 
-            # Extract language
             language_tag = soup.find("tr", {"property": "dcterms:language"})
             if language_tag:
                 language = language_tag.find("td").text.strip()
             else:
                 language = "Unknown Language"
 
-            # Extract category/subject
             subject_tags = soup.find_all("a", href=lambda href: href and href.startswith("/ebooks/subject"))
             subjects = ", ".join(tag.text.strip() for tag in subject_tags) if subject_tags else "Unknown Category"
 
-            # Extract image URL
             image_tag = soup.find("meta", {"property": "og:image"})
             image_url = image_tag["content"] if image_tag else "Unknown Image"
 
-            # Extract plain text URL
             text_link = soup.find("a", href=True, text="Plain Text UTF-8")
             text_url = f"{base_url}{text_link['href']}" if text_link else None
 
@@ -85,21 +79,14 @@ class Scraper:
             str: The URL of the most relevant product, or None if no match is found.
         """
         try:
-            # Generate search URL with URL-encoded title
             search_url = f"https://www.amazon.com/s?k={requests.utils.quote(title)}"
             
             HEADERS = ({'User-Agent':'', 'Accept-Language': 'en-US, en;q=0.5'})
 
-            # HTTP Request
             webpage = requests.get(search_url, headers=HEADERS)
-
-            # Soup Object containing all data
             soup = BeautifulSoup(webpage.content, "html.parser")
-
-            # Fetch links as List of Tag Objects
             
             products = soup.find_all("div",attrs={"data-component-type":"s-search-result"})
-
             best_match = None
             best_score = 0
 
@@ -113,7 +100,6 @@ class Scraper:
         
                     product_link = f"https://www.amazon.com{link_element['href']}"
         
-                    # Calculate similarity score
                     score = fuzz.partial_ratio(title.lower(), product_title.lower())
                     if score > best_score:
                         best_score = score

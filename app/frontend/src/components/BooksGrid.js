@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BooksGrid = ({ books }) => {
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + "...";
+        }
+        return text;
+    };
+
     if (books.length === 0) {
         return <p>No books available to display. Try adjusting your filters or search terms.</p>;
     }
@@ -12,8 +19,8 @@ const BooksGrid = ({ books }) => {
                  <Link to={`/book/${book.id}`} key={book.id} className="book-card-link">
                 <div className="book-card" key={book.id}>
                     {book.image_url && <img src={book.image_url} alt={book.title} />}
-                    <h3>{book.title}</h3>
-                    <p>Author: {book.author}</p>
+                    <h3>{truncateText(book.title, 50)}</h3>
+                    <p>{truncateText(book.author, 30)}</p>
                 </div>
                 </Link>
             ))}

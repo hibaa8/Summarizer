@@ -10,11 +10,17 @@ const BookDetails = () => {
 
     useEffect(() => {
         axios.get(`/api/books/${id}`)
-            .then((response) => {
-                setBook(response.data);
-            })
-            .catch((error) => console.error('Error fetching book details:', error));
-    }, [id]);
+        .then((response) => {
+            const data = response.data;
+            if (data.summary) {
+                data.summary = data.summary
+                    .replace(/```html/g, "") 
+                    .replace(/```/g, "");  
+            }
+            setBook(data);
+        })
+        .catch((error) => console.error('Error fetching book details:', error));
+}, [id]);
 
     if (!book) {
         return <p>Loading...</p>;

@@ -10,8 +10,8 @@ load_dotenv()
 class Summarizer:
     def __init__(self):
         """
-        Initialize the Summarizer with the Hugging Face API URL.
-        :param api_url: The endpoint for the Hugging Face BART model.
+        Initialize the Summarizer with the Gemini API
+        :param api_url: The endpoint for the gemini model
         """
         
         genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -78,7 +78,7 @@ class Summarizer:
             response_cleaned = response.replace("```html", "").replace("```", "")
 
         except Exception as e:
-            print(f"Error calling BART API: {e}")
+            print(f"Error calling Gemini API: {e}")
             return "Error summarizing text chunk."
         
         return response_cleaned
