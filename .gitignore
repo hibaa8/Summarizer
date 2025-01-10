@@ -28,3 +28,9 @@ setupTests.js
 
 #virtualenv
 /venv
+
+#backend
+backend/.env
+
+# Ignore Python cache directories
+backend/__pycache__/
