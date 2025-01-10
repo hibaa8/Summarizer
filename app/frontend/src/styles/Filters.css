@@ -1,0 +1,37 @@
+
+.filters {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    max-width: 300px;
+    min-width: 200px;
+    flex-shrink: 0; 
+}
+
+.filters h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.filter-item input {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; 
+    }
+
+    .filters {
+        max-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd; 
+        align-items: center; 
+    }
+}

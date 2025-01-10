@@ -1,0 +1,84 @@
+/* Global Styles for consistency */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* BookDetails container */
+.book-details-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Book title */
+.book-details-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Book metadata */
+.book-metadata {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.book-metadata strong {
+    font-weight: bold;
+}
+
+/* Book image */
+.book-details-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Amazon link */
+.amazon-link {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: rgb(202, 4, 4);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.amazon-link:hover {
+    background-color: #ed1d05;
+}
+
+/* Summary styling */
+.book-summary {
+    margin-top: 2rem;
+    line-height: 1.8;
+}
+
+/* Back to Home link */
+.back-home {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.back-home a {
+    color: #1c91da;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-home a:hover {
+    text-decoration: underline;
+}
