@@ -5,6 +5,7 @@ import google.generativeai as genai
 
 from dotenv import load_dotenv
 import os
+load_dotenv()
 
 class Summarizer:
     def __init__(self):
@@ -12,8 +13,8 @@ class Summarizer:
         Initialize the Summarizer with the Hugging Face API URL.
         :param api_url: The endpoint for the Hugging Face BART model.
         """
-
-        genai.configure(os.getenv("GEMINI_API_KEY"))
+        
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
         self.model = genai.GenerativeModel("gemini-1.5-flash")
 
     def fetch_full_text(self, url):
