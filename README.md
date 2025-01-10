@@ -29,8 +29,8 @@ This project is a full-stack  web application that allows users to browse books,
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/hibaa8/Summarizer.git
+cd Summarizer
 ```
 
 ### **2. Backend Setup**
