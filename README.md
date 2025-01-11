@@ -1,4 +1,4 @@
-# **Book Summarizer and Recommendation System**
+# **Book Summarizer**
 
 This project is a full-stack  web application that allows users to browse books, view detailed summaries, and filter books by categories. The summaries are generated using generative AI models, providing users with engaging and insightful content.
 
@@ -29,8 +29,8 @@ This project is a full-stack  web application that allows users to browse books,
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/hibaa8/Summarizer.git
+cd Summarizer
 ```
 
 ### **2. Backend Setup**
@@ -69,7 +69,6 @@ npm install
 ```
 
 Start the development server:
-```
 ```bash
 npm start
 ```
