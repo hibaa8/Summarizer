@@ -34,22 +34,12 @@ cd Summarizer
 ```
 
 ### **2. Backend Setup**
-Create a virtual environment and activate it:
 
+Navigate to the backend directory:
 ```bash
-python3 -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+cd app/backend
 ```
 
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-Initialize the database:
-```bash
-flask db upgrade
-```
 Run the Flask app:
 ```bash
 flask run
@@ -59,11 +49,10 @@ flask run
 
 Navigate to the frontend directory:
 ```bash
-cd frontend
+cd ../frontend
 ```
 
 Install dependencies:
-
 ```bash
 npm install
 ```
@@ -80,7 +69,7 @@ Open your browser and navigate to: http://127.0.0.1:3000
 ## **Usage**
 - **Browse Books**: Explore books displayed in a grid layout.
 - **Filter Books**: Use the sidebar filters to sort books by popular categories.
-- **Search Books**: Use the search bar to find books by title or author.
+- **Search Books**: Use the search bar to find books by title, author, categories, language, or other key words.
 - **View Detailed Summary**: Click on any book card to be directed to a seperate page that showcases book metadata and the LLM-generated summary.
 
  

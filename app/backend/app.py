@@ -1,8 +1,7 @@
 from flask import Flask, jsonify, request, send_from_directory
-from init import create_app, db
+from init import create_app
 from models import Book
 import os
-
 
 app = create_app()
 

@@ -2,7 +2,7 @@ from init import create_app, db
 from models import Book
 
 class DatabaseHandler:
-    def add_books(self, books):
+    def add_book(self, book):
         """
         Add a list of books to the database.
 
@@ -12,18 +12,17 @@ class DatabaseHandler:
         try:
             app = create_app()
             with app.app_context():
-                for book in books:
-                        book_record = Book(
-                            title=book["title"],
-                            author=book["author"],
-                            language=book["language"],
-                            subject=book["subject"],
-                            image_url=book["image_url"],
-                            amazon_url=book["amazon_url"],
-                            summary=book["summary"],
-                        )
-                        db.session.add(book_record)
-
+            
+                book_record = Book(
+                    title=book["title"],
+                    author=book["author"],
+                    language=book["language"],
+                    subject=book["subject"],
+                    image_url=book["image_url"],
+                    amazon_url=book["amazon_url"],
+                    summary=book["summary"],
+                )
+                db.session.add(book_record)
                 db.session.commit()
 
         except Exception as e:

@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
 import time
+import json
 
 class Scraper:
     def __init__(self):
@@ -122,26 +123,26 @@ class Scraper:
 
         book_links = soup.select('ol li a[href^="/ebooks/"]')
 
-        books = []
 
         batch_size = 3
-        start = 8
-        limit = 50
+        start = 55
+        end = 100
 
-        for i in range(start, limit, batch_size):
+        with open('llm_output.txt', 'a') as file:
+            for i in range(start, end, batch_size):
 
-            batch = book_links[i:i + batch_size]
+                batch = book_links[i:i + batch_size]
 
-            for book_link in batch:
-                book_id = book_link["href"].split("/")[-1]
-                metadata = self.fetch_book_metadata(base_url, book_id)
-                if metadata:
-                    books.append(metadata)
-            
-            if i + batch_size < len(books):
-                print(f"Waiting for {60} seconds before processing the next batch...")
-                time.sleep(60)
+                for book_link in batch:
+                    book_id = book_link["href"].split("/")[-1]
+                    metadata = self.fetch_book_metadata(base_url, book_id)
+                    if metadata:
+                        self.db_handler.add_book(metadata)
+                
+                if i + batch_size < end:
+                    print(f"Waiting for {60} seconds before processing the next batch...")
+                    time.sleep(60)
+        file.close()
 
-        self.db_handler.add_books(books)
         
 
