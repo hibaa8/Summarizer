@@ -35,7 +35,6 @@ __pycache__/
 backend/.env
 backend/__pycache__/
 backend/instance/
-backend/summaries.db
 backend/test.py
 backend/llm_output.txt
 
@@ -43,8 +42,8 @@ backend/llm_output.txt
 # Frontend-specific ignores
 frontend/.gitignore
 frontend/build/
-frontend/src/components/SearchBar.js
-frontend/src/hooks/
+frontend/node_modules
+frontend/src/AuthProvider.js
 
 # Flask static and template folders
 static/

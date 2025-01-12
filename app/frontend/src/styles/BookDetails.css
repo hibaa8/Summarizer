@@ -1,4 +1,4 @@
-/* Global Styles for consistency */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,6 @@ body {
     color: #333;
 }
 
-/* BookDetails container */
 .book-details-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -17,14 +16,12 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Book title */
 .book-details-title {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-/* Book metadata */
 .book-metadata {
     margin-bottom: 1.5rem;
     line-height: 1.6;
@@ -34,7 +31,6 @@ body {
     font-weight: bold;
 }
 
-/* Book image */
 .book-details-image {
     display: block;
     max-width: 100%;
@@ -44,7 +40,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Amazon link */
 .amazon-link {
     display: inline-block;
     margin: 1rem 0;
@@ -61,13 +56,11 @@ body {
     background-color: #ed1d05;
 }
 
-/* Summary styling */
 .book-summary {
     margin-top: 2rem;
     line-height: 1.8;
 }
 
-/* Back to Home link */
 .back-home {
     margin-top: 2rem;
     text-align: center;
