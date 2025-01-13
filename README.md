@@ -41,6 +41,11 @@ Navigate to the backend directory:
 cd app/backend
 ```
 
+Install the necessary requirements
+```bash
+pip install -r requirements.txt   
+```
+
 Run the Flask app:
 ```bash
 flask run
