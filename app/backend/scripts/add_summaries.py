@@ -3,7 +3,8 @@ from ..app import create_app
 
 app = create_app()
 
-# navigate to the app dir and run python3 -m backend.scripts.add_summaries to add additional books
+# script to add more books to database.
+# can be run from the app dir after correct setup (see requirements.txt). Run: python3 -m backend.scripts.add_summaries.
 if __name__ == '__main__':
     with app.app_context():
         scrapper = GutenbergScraper()

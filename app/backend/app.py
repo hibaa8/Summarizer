@@ -1,5 +1,4 @@
 from flask import Flask, send_from_directory
-from .config import Config
 from .database import db
 import os
 

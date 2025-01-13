@@ -13,7 +13,7 @@ class GutenbergScraper:
         self.db_handler = DatabaseHandler()
         self.llm_agent = LLMSummaryGenerator()
 
-    def _fetch_full_text(self, url):
+    def fetch_full_text(self, url):
         try:
             response = requests.get(url)
             response.raise_for_status()
@@ -27,7 +27,7 @@ class GutenbergScraper:
             print(f"Error fetching full text from {url}: {e}")
             return None
     
-    def _fetch_book_metadata(self,base_url, book_id):
+    def _fetch_full_text(self,base_url, book_id):
         book_url = f"{base_url}/ebooks/{book_id}"
         response = requests.get(book_url)
         response.raise_for_status()
@@ -93,12 +93,10 @@ class GutenbergScraper:
         start = 0
 
         for i in range(start, end, batch_size):
-
             batch = book_links[i:i + batch_size]
-
             for book_link in batch:
                 book_id = book_link["href"].split("/")[-1]
-                metadata = self._fetch_book_metadata(base_url, book_id)
+                metadata = self.fetch_book_metadata(base_url, book_id)
                 if metadata:
                     self.db_handler.add_book(metadata)
             

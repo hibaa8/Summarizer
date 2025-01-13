@@ -3,13 +3,7 @@ from .models import Book
 from flask import jsonify
 
 class DatabaseHandler:
-    def add_book(self, book):
-        """
-        Adds one book to the database.
-
-        :param books_metadata: List of book metadata dictionaries.
-        """
-        
+    def add_book(self, book):   
         try:
             existing_book = Book.query.filter_by(title=book["title"]).first()
             if existing_book:
@@ -32,11 +26,6 @@ class DatabaseHandler:
             print(f"Error while adding books to database: {e}")
 
     def get_all_books(self,subject):
-        """
-        Retrieve all books from the database.
-
-        :return: List of Book objects.
-        """
         try:
             query = Book.query
             if subject:
@@ -63,12 +52,6 @@ class DatabaseHandler:
             return []
 
     def get_book_by_id(self, book_id):
-        """
-        Retrieve a single book by its id.
-
-        :param title: Title of the book to retrieve.
-        :return: Book object or None if not found.
-        """
         try:
             book = Book.query.get_or_404(book_id) 
             return jsonify({

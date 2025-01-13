@@ -1,0 +1,12 @@
+Flask>=2.2.0,<3.0.0
+Flask-SQLAlchemy>=3.0.0,<4.0.0
+SQLAlchemy>=1.4,<2.0
+
+
+#optional requirements needed to run scripts/add_summaries.py
+#should be installed in a virtual env
+# google-generativeai==0.3.0
+# requests==2.31.0
+# beautifulsoup4==4.12.2
+# fuzzywuzzy==0.18.0
+# python-dotenv

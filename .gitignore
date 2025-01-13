@@ -1,14 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-
 # Backend-specific ignores
 app/backend/.env
 app/backend/__pycache__/
-app/backend/instance/
-app/backend/test.py
-app/backend/llm_output.txt
-app/backend/requirements.txt
-app/backend/init.py
 app/backend/venv
 app/backend/lib/
 app/backend/bin/
@@ -20,9 +12,6 @@ app/backend/database/__pycache__/*
 app/frontend/.gitignore
 app/frontend/build/
 app/frontend/node_modules
-app/frontend/src/AuthProvider.js
-
-
 
 #mac
 .DS_Store
