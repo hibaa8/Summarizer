@@ -47,9 +47,9 @@ flask run
 
 ### **3.Frontend Setup**
 
-Navigate to the frontend directory:
+Open a new terminal window and navigate to the frontend directory:
 ```bash
-cd ../frontend
+cd app/frontend
 ```
 
 Install dependencies:

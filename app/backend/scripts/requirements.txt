@@ -1,0 +1,6 @@
+#requirements to run add_summaries.py
+google-generativeai==0.3.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+fuzzywuzzy==0.18.0
+flask_sqlalchemy
