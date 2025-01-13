@@ -1,30 +1,40 @@
 # **Book Summarizer**
 
-This project is a full-stack  web application that allows users to browse books, view detailed summaries, and filter books by categories. The summaries are generated using generative AI models, providing users with engaging and insightful content.
+A full-stack web application that enables users to browse books, view detailed summaries, and filter books by categories. Summaries are generated using generative AI models, providing engaging and insightful content.
+
+---
 
 ## **Features**
 
 - **Book Browsing**: View books in a responsive grid layout with images, titles, and authors.
+- **Web Scraping**: 
+  - Scraped the Amazon website to retrieve product URLs for books.
+  - Scraped Project Gutenberg for metadata and full book text.
 - **AI-Powered Summaries**: Generate detailed summaries for books using the Gemini 1.5 Flash model.
 - **Filters and Search**:
-  - Filter books by popular categories (e.g., Science Fiction, Romance, etc.).
-  - Search books by title or author.
+  - Filter books by popular categories (e.g., Science Fiction, Romance).
+  - Search books by keywords including title, author, language, category, etc
 - **Book Details**: Click on any book to view its details, including language, category, image, and summary.
 - **Responsive Design**: Works seamlessly on desktop and mobile devices.
+
+---
 
 ## **Tech Stack**
 
 ### **Frontend**
-- **React**: Interactive user interface and components.
-- **CSS**: Styling for responsiveness and clean layout.
+- React
+- CSS
 
 ### **Backend**
-- **Flask**: Python-based web framework for the API and database integration.
-- **SQLite**: Lightweight relational database for storing book metadata.
-- **Filtering and Search**: Implements precise filtering and a weighted search system for delivering relevant and flexible results.
+- Flask
+- SQLite
 
 ### **AI Integration**
-- **Generative AI (Gemini 1.5)**: Used prompt engineering to generate detailed and organized book summaries that covered each chapter/section of the book and had key takeaways at the end.
+- **Generative AI (Gemini 1.5)**: 
+  - Summaries include detailed descriptions of each chapter/section and key takeaways at the end.
+  - **Prompt Engineering**: Designed a custom prompt to structure summaries logically and ensure readability and relevance.
+
+---
 
 ## **Installation**
 
@@ -70,13 +80,4 @@ npm start
 
 ### **View the App**
 Open your browser and navigate to: http://127.0.0.1:3000 
-(assuming that the flask server is running on port 5000)
-
-## **Usage**
-- **Browse Books**: Explore books displayed in a grid layout.
-- **Filter Books**: Use the sidebar filters to sort books by popular categories.
-- **Search Books**: Use the search bar to find books by title, author, categories, language, or other key words.
-- **View Detailed Summary**: Click on any book card to be directed to a seperate page that showcases book metadata and the LLM-generated summary.
-
- 
-
+(flask server should be running on port 5000)
