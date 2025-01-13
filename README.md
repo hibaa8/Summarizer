@@ -21,6 +21,7 @@ This project is a full-stack  web application that allows users to browse books,
 ### **Backend**
 - **Flask**: Python-based web framework for the API and database integration.
 - **SQLite**: Lightweight relational database for storing book metadata.
+- **Filtering and Search**: Implements precise filtering and a weighted search system for delivering relevant and flexible results.
 
 ### **AI Integration**
 - **Generative AI (Gemini 1.5)**: Used prompt engineering to generate detailed and organized book summaries that covered each chapter/section of the book and had key takeaways at the end.
