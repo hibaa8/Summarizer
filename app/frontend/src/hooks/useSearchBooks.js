@@ -6,7 +6,7 @@ export const useSearchBooks = (filteredBooks) => {
 
     useEffect(() => {
         if (!searchQuery) {
-            setSearchResults(filteredBooks); // Show all filtered books when no query
+            setSearchResults(filteredBooks); 
             return;
         }
 

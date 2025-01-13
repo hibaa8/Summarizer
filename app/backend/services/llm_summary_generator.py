@@ -26,7 +26,6 @@ class LLMSummaryGenerator:
         try:
             response = self.model.generate_content(PROMPT.replace("{}", full_text)).text
             response_cleaned = response.replace("```html", "").replace("```", "")
-            print(response_cleaned)
 
         except Exception as e:
             print(f"Error calling Gemini API: {e}")

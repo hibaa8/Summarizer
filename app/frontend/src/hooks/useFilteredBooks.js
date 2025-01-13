@@ -6,7 +6,7 @@ export const useFilteredBooks = (books, popularCategories) => {
     const [selectedFilters, setSelectedFilters] = useState([]);
 
     useEffect(() => {
-        setFilteredBooks(books); // Initialize filteredBooks with the full list of books
+        setFilteredBooks(books); 
     }, [books]);
 
     const handleFilter = (selectedCategories) => {
@@ -18,7 +18,7 @@ export const useFilteredBooks = (books, popularCategories) => {
 
         const fuse = new Fuse(popularCategoriesLowercase, {
             includeScore: true,
-            threshold: 0.3,
+            threshold: 0.4,
         });
 
         const filtered = selectedCategories.includes('other')
