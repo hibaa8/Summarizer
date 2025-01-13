@@ -1,4 +1,3 @@
-# from init import db
 from .amazon_web_scraper import AmazonScraper
 from backend.database.db_handler import DatabaseHandler
 from .llm_summary_generator import LLMSummaryGenerator
@@ -14,12 +13,7 @@ class GutenbergScraper:
         self.db_handler = DatabaseHandler()
         self.llm_agent = LLMSummaryGenerator()
 
-    def fetch_full_text(self, url):
-        """
-        Fetch the full book text from the given URL.
-        :param url: URL to the book's full text, unnecessary content trimmed at the start and end
-        :return: The complete book text as a string.
-        """
+    def _fetch_full_text(self, url):
         try:
             response = requests.get(url)
             response.raise_for_status()
@@ -33,17 +27,7 @@ class GutenbergScraper:
             print(f"Error fetching full text from {url}: {e}")
             return None
     
-    def fetch_book_metadata(self,base_url, book_id):
-        """
-        Fetch metadata for a specific book by its ID.
-
-        Args:
-            base_url (str): The base URL of Project Gutenberg.
-            book_id (str): The ID of the book.
-
-        Returns:
-            dict: Metadata for the book, including title, author, language, etc.
-        """
+    def _fetch_book_metadata(self,base_url, book_id):
         book_url = f"{base_url}/ebooks/{book_id}"
         response = requests.get(book_url)
         response.raise_for_status()
@@ -77,7 +61,7 @@ class GutenbergScraper:
             text_link = soup.find("a", href=True, text="Plain Text UTF-8")
             text_url = f"{base_url}{text_link['href']}" if text_link else None
 
-            full_text = self.fetch_full_text(text_url)
+            full_text = self._fetch_full_text(text_url)
             if full_text:
                 summary = self.llm_agent.call_llm(full_text)
             else:
@@ -114,7 +98,7 @@ class GutenbergScraper:
 
             for book_link in batch:
                 book_id = book_link["href"].split("/")[-1]
-                metadata = self.fetch_book_metadata(base_url, book_id)
+                metadata = self._fetch_book_metadata(base_url, book_id)
                 if metadata:
                     self.db_handler.add_book(metadata)
             

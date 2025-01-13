@@ -13,7 +13,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
 
-    # Delayed importing setup_routes to avoid circular import
+    # Delay importing setup_routes to avoid circular import
     from .services import setup_routes
     setup_routes(app)
 

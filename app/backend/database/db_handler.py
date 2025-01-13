@@ -58,7 +58,6 @@ class DatabaseHandler:
             ]
             return jsonify(books_data)
 
-            # return Book.query.all()
         except Exception as e:
             print(f"Error while retrieving books: {e}")
             return []
