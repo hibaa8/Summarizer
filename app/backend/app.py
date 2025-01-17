@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory
 from .database import db
 import os
 
+
 def create_app():
     app = Flask(__name__)
     
@@ -12,18 +13,8 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
 
-    # Delay importing setup_routes to avoid circular import
-    from .services import setup_routes
-    setup_routes(app)
-
-    @app.route("/", defaults={"path": ""})
-    @app.route("/<path:path>")
-    def serve_react(path):
-        react_build_dir = os.path.join(base_dir, "../frontend/build")
-        if path != "" and os.path.exists(os.path.join(react_build_dir, path)):
-            return send_from_directory(react_build_dir, path)
-        else:
-            return send_from_directory(react_build_dir, "index.html")
+    from .routes import routes
+    app.register_blueprint(routes, url_prefix='/')
 
     return app
 
