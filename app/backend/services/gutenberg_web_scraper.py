@@ -89,7 +89,7 @@ class GutenbergScraper:
         soup = BeautifulSoup(response.text, "html.parser")
         book_links = soup.select('ol li a[href^="/ebooks/"]')
 
-        batch_size = 1
+        batch_size = 3
         start = 101
         end += start
 
